@@ -25,7 +25,7 @@ export function bootstrap(app) {
   app.use("/api/v1/review", reviewRouter);
   app.use("/api/v1/address", addressRouter);
   app.use("/restorex/carts", cartRouter);
-  app.use("/api/v1/orders", orderRouter);
+  // app.use("/api/v1/orders", orderRouter);
   app.use("/restorex/request", requestRouter); 
   app.use("/restorex/queries", queryRouter);
 

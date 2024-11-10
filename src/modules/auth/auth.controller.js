@@ -96,10 +96,13 @@ const signUp = catchAsyncError(async (req, res, next) => {
 
 const signIn = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;
+  console.log("================");
   let user = await userModel.findOne({ email });
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return next(new AppError("Invalid email or password", 401));
   }
+  console.log("================");
+
   let token = jwt.sign(
     { email: user.email, name: user.name, id: user._id, role: user.role },
     "JR"

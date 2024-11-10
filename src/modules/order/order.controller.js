@@ -1,14 +1,14 @@
-import axios from "axios";
-import { catchAsyncError } from "../../utils/catchAsyncError.js";
-import { AppError } from "../../utils/AppError.js";
-import { cartModel } from "../../../Database/models/cart.model.js";
-import { productModel } from "../../../Database/models/product.model.js";
-import { orderModel } from "../../../Database/models/order.model.js";
-import  userModel  from "../../../Database/models/user.model.js";
 // import axios from "axios";
+// import { catchAsyncError } from "../../utils/catchAsyncError.js";
+// import { AppError } from "../../utils/AppError.js";
+// import { cartModel } from "../../../Database/models/cart.model.js";
+// import { productModel } from "../../../Database/models/product.model.js";
+// import { orderModel } from "../../../Database/models/order.model.js";
+// import  userModel  from "../../../Database/models/user.model.js";
+// // import axios from "axios";
 
-const KLARNA_API_URL = "https://api.playground.klarna.com/checkout/v3/orders";
-const KLARNA_API_KEY = "sk_test_26PHem9AhJZvU623DfE1x4sd";
+// const KLARNA_API_URL = "https://api.playground.klarna.com/checkout/v3/orders";
+// const KLARNA_API_KEY = "sk_test_26PHem9AhJZvU623DfE1x4sd";
 
 // Helper function to create a Klarna order
 // const createKlarnaOrder = async (req,res) => {
@@ -346,8 +346,8 @@ const KLARNA_API_KEY = "sk_test_26PHem9AhJZvU623DfE1x4sd";
 // };
 
 
-import cron from 'node-cron';
-import  orderModel  from '../../../Database/models/order.model.js'; // Assuming orderModel is imported
+// import cron from 'node-cron';
+// import  orderModel  from '../../../Database/models/order.model.js'; // Assuming orderModel is imported
 
 // Cron job to check for due installments and process payment
 const createOrderWithInstallments = async (orderData) => {
