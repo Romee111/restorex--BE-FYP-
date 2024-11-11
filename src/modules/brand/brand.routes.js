@@ -26,7 +26,7 @@ brandRouter
   .route("/updateBrand/:id")
   .put(
     protectedRoutes,
-    allowedTo("admin"),
+    allowedTo("admin","seller"),
     validate(updateBrandValidation),
     brand.updateBrand
   )
@@ -34,7 +34,7 @@ brandRouter
   .route("/deleteBrand/:id")
   .delete(
     protectedRoutes,
-    allowedTo("admin"),
+    allowedTo("admin","seller"),
     validate(deleteBrandValidation),
     brand.deleteBrand
   );

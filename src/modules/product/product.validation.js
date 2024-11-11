@@ -27,7 +27,7 @@ const updateProductValidation = Joi.object({
   imgCover: Joi.string(),
   images: Joi.array().items(Joi.string()),
   title: Joi.string().required().trim().min(3),
-  descripton: Joi.string().max(100).min(10).trim(),
+  description: Joi.string().max(100).min(10).trim(),
   price: Joi.number().min(0).default(0),
   priceAfterDiscount: Joi.number().min(0).default(0),
   quantity: Joi.number().min(0).default(0),
@@ -37,6 +37,8 @@ const updateProductValidation = Joi.object({
   brand: Joi.string().hex().length(24),
   ratingAvg: Joi.number().min(1).max(5),
   ratingCount: Joi.number().min(0),
+  color: Joi.array(),
+  size: Joi.array(),
 });
 
 const deleteProductValidation = Joi.object({

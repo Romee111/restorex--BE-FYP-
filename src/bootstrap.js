@@ -18,7 +18,7 @@ import { AppError } from "./utils/AppError.js";
 export function bootstrap(app) {
   app.use("/restorex/categories", categoryRouter);
   app.use("/restorex/subcategories", subCategoryRouter);
-  app.use("/api/v1/brands", brandRouter);
+  app.use("/restorex/brands", brandRouter);
   app.use("/api/v1/products", productRouter);
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/auth", authRouter);
