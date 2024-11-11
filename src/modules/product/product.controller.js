@@ -132,5 +132,6 @@ export {
   getSpecificProduct,
   updateProduct,
   deleteProduct,
-  getproductBySellerId
+  getproductBySellerId,
+   getProductsById
 };

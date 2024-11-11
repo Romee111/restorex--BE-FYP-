@@ -41,9 +41,13 @@ productRouter
 
 
 productRouter
+  .route("/getProductsById/:id")
+
+  .get(product.getProductsById);
+
+  productRouter
   .route("/getProducts")
   .get(product.getProducts);
-  .get(product.getProductsById);
 
 productRouter
   .route("/updateProduct/:id")
