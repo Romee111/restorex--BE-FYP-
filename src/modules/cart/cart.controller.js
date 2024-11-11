@@ -183,6 +183,13 @@ const updateProductQuantity = catchAsyncError(async (req, res, next) => {
   res.status(201).json({ message: "success", cart: isCartExist });
 });
 
+const getCartById = catchAsyncError(async (req, res, next) => {
+  const { id } = req.params;
+  const getCartById = await cartModel.findById(id);
+  res.status(201).json({ message: "success", getCartById });
+});
+
+
 // Apply coupon to cart
 const applyCoupon = catchAsyncError(async (req, res, next) => {
   let coupon = await couponModel.findOne({
@@ -213,5 +220,6 @@ export {
   removeProductFromCart,
   updateProductQuantity,
   applyCoupon,
-  getLoggedUserCart
+  getLoggedUserCart,
+  getCartById
 };

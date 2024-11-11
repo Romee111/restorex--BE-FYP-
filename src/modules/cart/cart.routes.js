@@ -12,11 +12,24 @@ cartRouter
     protectedRoutes,
     allowedTo("user"),
     cart.addProductToCart
-  ).get(
+
+  )
+
+cartRouter
+  .route("/getLoggedUserCart")
+  .get(
     protectedRoutes,
     allowedTo("user"),
     cart.getLoggedUserCart
   )
+cartRouter
+  .route("/getCartById/:id")
+  .get(
+    protectedRoutes,
+    allowedTo("user"),
+    cart.getCartById
+  )
+
   cartRouter
   .route("/apply-coupon")
   .post(
