@@ -70,6 +70,27 @@ const getAllProducts = catchAsyncError(async (req, res, next) => {
     .status(201)
     .json({ page: PAGE_NUMBER, message: "success", getAllProducts });
 });
+const getproductBySellerId = catchAsyncError(async (req, res, next) => {
+  // Ensure that only sellers can access this endpoint and check their ID
+  if (!req.user || req.user.role !== 'seller') {
+    return res.status(403).json({ message: "Access denied. Only sellers can access this endpoint." });
+  }
+
+  // Filter products to only those created by the logged-in seller
+  const apiFeature = new ApiFeatures(productModel.find({ createdBy: req.user._id }), req.query)
+    .pagination()
+    .limit()
+    .fields()
+    .filteration()
+    .search()
+    .sort();
+
+  const PAGE_NUMBER = apiFeature.queryString.page * 1 || 1;
+  const getAllProducts = await apiFeature.mongooseQuery;
+
+  res.status(200).json({ page: PAGE_NUMBER, message: "success", products: getAllProducts });
+});
+
 const getProducts=catchAsyncError(async(req,res,next)=>{
   const getProducts=await productModel.find();
   res.status(201).json({message:"success",getProducts})  
@@ -105,4 +126,5 @@ export {
   getSpecificProduct,
   updateProduct,
   deleteProduct,
+  getproductBySellerId
 };

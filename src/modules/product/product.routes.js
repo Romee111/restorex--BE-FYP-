@@ -33,6 +33,12 @@ productRouter
   .route("/getAllProducts")
   .get(product.getAllProducts);
 
+  productRouter
+  .route("/getProductBySellerId")
+  .get(
+    allowedTo( "seller"),
+    product.getproductBySellerId);
+
 productRouter
   .route("/getProducts")
   .get(product.getProducts);
