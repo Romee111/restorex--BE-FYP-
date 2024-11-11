@@ -34,14 +34,16 @@ productRouter
   .get(product.getAllProducts);
 
   productRouter
-  .route("/getProductBySellerId")
+  .route("/getProductBySellerId/:id")
   .get(
     allowedTo( "seller"),
     product.getproductBySellerId);
 
+
 productRouter
   .route("/getProducts")
   .get(product.getProducts);
+  .get(product.getProductsById);
 
 productRouter
   .route("/updateProduct/:id")

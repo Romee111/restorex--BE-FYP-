@@ -6,7 +6,7 @@ import { deleteOne } from "../../handlers/factor.js";
 import { productModel } from "./../../../Database/models/product.model.js";
 import { ApiFeatures } from "../../utils/ApiFeatures.js";
 
-// const addProduct = catchAsyncError(async (req, res, next) => {
+
 //   try {
 //     // If you're using file uploads (like with multer)
 //     // req.body.imgCover = req.files.imgCover[0].filename;
@@ -70,6 +70,12 @@ const getAllProducts = catchAsyncError(async (req, res, next) => {
     .status(201)
     .json({ page: PAGE_NUMBER, message: "success", getAllProducts });
 });
+
+ const getProductsById=catchAsyncError(async(req,res,next)=>{
+  const {id}=req.params
+  const getProductsById=await productModel.findById(id)
+  res.status(201).json({message:"success",getProductsById})
+ })
 const getproductBySellerId = catchAsyncError(async (req, res, next) => {
   // Ensure that only sellers can access this endpoint and check their ID
   if (!req.user || req.user.role !== 'seller') {
